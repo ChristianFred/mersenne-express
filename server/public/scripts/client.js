@@ -18,7 +18,27 @@ function addQuote() {
     };
     console.log('NewQuote is', newQuote);
     // POST our quote to /quotes
+    $.ajax({
+        method: 'POST',
+        url: '/quotes',
+        data: newQuote,
+    }).then((response) => {
+        console.log('POST / quotes', response);
+        // Refresh data from the server
+        // by calling the GET /quotes endpoint
+        // and re-rendering the DOM
 
+        // Make sure to do this AFTER the POST request is complete
+        // (in our.then())
+       // getQuotes();
+    }).catch(error => {
+        console.log('POST /quotes failed', error);
+        $('body').append(`
+        <h2> 
+            Failed to save quote! Check your data, before you wreck your data
+        </h2>
+        `);
+    });
 }
 
 function getQuotes() {
@@ -31,7 +51,7 @@ function getQuotes() {
         //Whatever we pass to res.send()
         //becomes the 'response argument
         .then((response) => {
-            console.log('GET /quotes responce', response)
+            console.log('GET /quotes response', response)
 
           let quoteList =  $('#quotes');
           console.log('quotes list element', quoteList)

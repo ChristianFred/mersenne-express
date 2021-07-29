@@ -1,7 +1,7 @@
 console.log('Look ma, my first express app!');
 
 const { text } = require('express');
-//Load the express libary
+//Load the express library
 //from node_modules/express
 const express = require('express');
 // loaf the body parser module
@@ -11,7 +11,7 @@ const bodyParser = require('body-Parser');
 const app = express();
 const quotes = [
     {
-        text: 'Debugging is like being the detective in a crime movie where you are also the murdurer',
+        text: 'Debugging is like being the detective in a crime movie where you are also the murderer',
         author: 'Filipe Fortes'
     },
     {
@@ -36,7 +36,7 @@ app.use(express.static('./server/public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
 
-// Listen for requests coming to a specfic URL: http://localhost:5000/quotes
+// Listen for requests coming to a specific URL: http://localhost:5000/quotes
 app.get('/quotes', (req, res) => {
     console.log('Ready to send back some quotes');
     console.log('request.route.path is', req.route.path);
@@ -47,7 +47,7 @@ app.get('/quotes', (req, res) => {
 });
 
 app.post('/quotes', (req,res) => {
-    console.log('woo hoom we got a new quote');
+    console.log('woo hoo we got a new quote');
 
     // Body parser gives us req.body
     console.log('req.body', req.body);
