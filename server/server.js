@@ -37,7 +37,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
 
 // Listen for requests coming to a specfic URL: http://localhost:5000/quotes
-app.get('/quotes', function(req, res) {
+app.get('/quotes', (req, res) => {
     console.log('Ready to send back some quotes');
     console.log('request.route.path is', req.route.path);
 
@@ -46,7 +46,7 @@ app.get('/quotes', function(req, res) {
     res.send(quotes);
 });
 
-app.post('/quotes', function(req,res){
+app.post('/quotes', (req,res) => {
     console.log('woo hoom we got a new quote');
 
     // Body parser gives us req.body
@@ -72,7 +72,7 @@ if (!newQuote.author || !newQuote.text) {
 
 //Listen for Requests
 const port = 5000;
-app.listen(port, function() {
+app.listen(port, () => {
 // kind of like our onReady function
 console.log('App is up and Running');
 });

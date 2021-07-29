@@ -15,7 +15,7 @@ function getQuotes() {
         //wait for the request to complete and THEN, run this function
         //Whatever we pass to res.send()
         //becomes the 'response argument
-        .then(function(response) {
+        .then((response) => {
             console.log('GET /quotes responce', response)
 
           let quoteList =  $('#quotes');
