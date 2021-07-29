@@ -4,6 +4,21 @@ function onReady() {
     console.log('So ready!');
 
     getQuotes()
+    console.log('submitBtn', $('submitBtn'));
+    $('#submitBtn').on('click', addQuote);
+}
+
+function addQuote() {
+    console.log('inside addQuote');
+
+    // Grab our quote data from the DOM inputs
+    let newQuote = {
+        text: $('#quoteInput').val(),
+        author: $('#authorInput').val()
+    };
+    console.log('NewQuote is', newQuote);
+    // POST our quote to /quotes
+
 }
 
 function getQuotes() {
